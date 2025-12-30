@@ -59,13 +59,13 @@
     </style>
     <script>
         // callAPI function that takes the base and exponent numbers as parameters
-        var callAPI = (peso,estatura,edad)=>{
+        var callAPI = (peso,estatura,edad,fecha_nacimiento)=>{
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
             // using built in JSON utility package turn object to string and store in a variable
-            var raw = JSON.stringify({"peso":peso,"estatura":estatura, "edad":edad});
+            var raw = JSON.stringify({"peso":peso,"estatura":estatura, "edad":edad, "fecha_nacimiento":fecha_nacimiento});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
@@ -88,14 +88,16 @@
 
     <h1>TO THE POWER OF MATH!</h1>
 	<form>
-        <label>Edad</label>
+        <label>Fecha de nacimiento</label>
+        <input type="date" id="fecha_nacimiento">
+        <label>Pais</label>
         <input type="text" id="edad">
         <label>Peso en kg:</label>
         <input type="text" id="peso">
         <label>Estatura en metros:</label>
         <input type="text" id="estatura">
         <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="callAPI(document.getElementById('peso').value,document.getElementById('estatura').value, document.getElementById('edad').value)">CALCULATE</button>
+        <button type="button" onclick="callAPI(document.getElementById('peso').value,document.getElementById('estatura').value, document.getElementById('edad').value, document.getElementById('fecha_nacimiento').value)">CALCULATE</button>
         
     </form>
 </body>
