@@ -59,13 +59,13 @@
     </style>
     <script>
         // callAPI function that takes the base and exponent numbers as parameters
-        var callAPI = (base,exponent)=>{
+        var callAPI = (peso,estatura)=>{
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
             // using built in JSON utility package turn object to string and store in a variable
-            var raw = JSON.stringify({"base":base,"exponent":exponent, "edad":edad});
+            var raw = JSON.stringify({"peso":peso,"estatura":estatura, "edad":edad});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
@@ -91,11 +91,11 @@
         <label>Edad</label>
         <input type="text" id="edad">
         <label>Peso en kg:</label>
-        <input type="text" id="base">
+        <input type="text" id="peso">
         <label>Estatura en metros:</label>
-        <input type="text" id="exponent">
+        <input type="text" id="estatura">
         <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="callAPI(document.getElementById('base').value,document.getElementById('exponent').value, document.getElementById('edad').value)">CALCULATE</button>
+        <button type="button" onclick="callAPI(document.getElementById('peso').value,document.getElementById('estatura').value, document.getElementById('edad').value)">CALCULATE</button>
         
     </form>
 </body>
